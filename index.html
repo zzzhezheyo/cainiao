@@ -1,0 +1,73 @@
+
+<!DOCTYPE html5>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>animate-menu-practice</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <ul class="animate-menu">
+                <li class="active">
+                    <a href="#!">菜单一</a>
+                </li>
+                <li>
+                    <a href="#!">菜单二菜单二</a>
+                </li>
+                <li>
+                    <a href="#!">菜单三</a>
+                </li>
+                <li>
+                    <a href="#!">菜单四菜单</a>
+                </li>
+                <li>
+                    <a href="#!">菜单五</a>
+                </li>
+                <div class="slider"></div>
+            </ul>
+        </div>
+    </nav>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+  $('ul.animate-menu li').on('mouseover', function(){
+    var width = $(this).width();
+    var offset = $(this).offset();
+    // console.log(width);
+    console.log(offset);
+    $('div.slider').css({
+      'width': width,
+      'left': offset.left
+    });
+  }).on('mouseleave', function(){
+    var width = $('li.active').width();
+    var offset = $('li.active').offset();
+    $('div.slider').css({
+      'width': width,
+      'left': offset.left
+    });
+  }).trigger('mouseleave');
+  //
+  // $('ul.animate-menu li').on('mouseover', function(){
+  //   var width = $(this).width();
+  //   var offset = $(this).offset();
+  //   // console.log(width);
+  //   console.log(offset);
+  //   $('div.slider').stop().animate({
+  //     'width': width,
+  //     'left': offset.left
+  //   }, 50);
+  // }).on('mouseleave', function(){
+  //   var width = $('li.active').width();
+  //   var offset = $('li.active').offset();
+  //   $('div.slider').stop().animate({
+  //     'width': width,
+  //     'left': offset.left
+  //   }, 50);
+  // }).trigger('mouseleave');
+</script>
+</html>
